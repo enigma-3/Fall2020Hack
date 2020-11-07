@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d4b1c218041914fa2931dbcf4b1fa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow: {fileID: 1607113303}
+  arrow: {fileID: 774526428128114918, guid: d8f66521f7b936e48bdce9aa18d60a3a, type: 3}
   launchForce: 13
   shotPoint: {fileID: 920455615}
 --- !u!212 &856753874
