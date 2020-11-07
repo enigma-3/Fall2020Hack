@@ -11,7 +11,7 @@ public class EnemyScript : MonoBehaviour
 
     public float movementSmooth = 0.05f; 
 
-    public Transform player; 
+    private Transform player; 
     public float viewRadius; 
     public float attackRad;
     
