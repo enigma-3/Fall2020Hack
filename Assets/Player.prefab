@@ -364,6 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   isGrounded: 0
+  jumpHeight: 10
 --- !u!114 &-7440533848294615113
 MonoBehaviour:
   m_ObjectHideFlags: 0
