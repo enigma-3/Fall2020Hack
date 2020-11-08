@@ -8,6 +8,7 @@ public class PlayerMoveScript : MonoBehaviour
     public float moveSpeed = 5f;
     public bool isGrounded = false;
     private bool facingRight = true;
+    public float jumpHeight;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,7 @@ public class PlayerMoveScript : MonoBehaviour
 
     void Jump(){
         if (Input.GetButtonDown("Jump") && isGrounded == true){
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
         }
     }
 

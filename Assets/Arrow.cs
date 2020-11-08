@@ -34,15 +34,10 @@ public class Arrow : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other){
-        if (other.gameObject.tag != "Arrow" && other.gameObject.tag != "Player"){
-            hasHit = true;
-            rb.velocity = Vector2.zero;
-            rb.isKinematic = true;
-        }
-
         if (other.gameObject.tag == "Enemy"){
             EnemyScript enemy = other.gameObject.GetComponent<EnemyScript>(); 
             enemy.takeDamage(damage);
+            Destroy(this.gameObject);
         }
     }
 
