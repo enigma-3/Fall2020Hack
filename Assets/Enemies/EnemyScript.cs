@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class EnemyScript : MonoBehaviour
 {
@@ -25,6 +27,7 @@ public class EnemyScript : MonoBehaviour
 
     public GameObject proj; 
 
+    public Slider slider; 
 
     private float startA; 
     public float attackDelay; 
@@ -46,9 +49,9 @@ public class EnemyScript : MonoBehaviour
             if (child.tag == "Prefab")
                 GameObject.Destroy(child.gameObject);
         }
-
+        
         curHealth = maxHealth; 
-
+        slider.value = curHealth/maxHealth;
 
         //Spawn Enemy
         int enemyIndex = Random.Range(0,4);
@@ -83,6 +86,7 @@ public class EnemyScript : MonoBehaviour
 
     public void takeDamage(float damage){
         curHealth -= damage; 
+        slider.value= curHealth/maxHealth;
         Debug.Log(curHealth);
         if (curHealth < 0){
             curHealth = 0; 
