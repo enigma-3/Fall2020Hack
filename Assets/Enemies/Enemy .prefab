@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 6689524261990897158}
   m_Layer: 0
   m_Name: 'Enemy '
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -366,7 +366,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -393,12 +393,13 @@ MonoBehaviour:
   movementSmooth: 0.05
   viewRadius: 10
   attackRad: 5
-  enemyVelocity: 3
+  enemyVelocity: 5
   refVel: {x: 0, y: 0, z: 0}
-  proj: {fileID: 0}
-  attackDelay: 0
+  proj: {fileID: 1967033473826967436, guid: 96ef2c58e7f4517499885af4370fdbea, type: 3}
+  slider: {fileID: 4390060745894985329}
+  attackDelay: 2
   spawner: {fileID: 1550876109635933839}
-  maxHealth: 0
+  maxHealth: 100
 --- !u!61 &6689524261990897158
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -523,6 +524,10 @@ PrefabInstance:
     - target: {fileID: 1000010208881502, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
       propertyPath: m_Name
       value: Rogue_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010208881502, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+      propertyPath: m_TagString
+      value: Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4000010141028922, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
       propertyPath: m_LocalPosition.x

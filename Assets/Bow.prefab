@@ -210,5 +210,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 774526428128114918, guid: d8f66521f7b936e48bdce9aa18d60a3a, type: 3}
-  launchForce: 13
+  launchForce: 17
   shotPoint: {fileID: 2253254784650518229}

@@ -8,13 +8,16 @@ public class Arrow : MonoBehaviour
     bool hasHit;
     float startTime;
     float duration = 4.0f;
-    public GameObject arrow;
+
+    int damage; 
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
         startTime = Time.time;
-
+        damage  = Random.Range(20,30); 
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -27,16 +30,21 @@ public class Arrow : MonoBehaviour
 
         if(Time.time - startTime > duration){
             Destroy(this.gameObject);
-        }
-
-    
+        }    
     }
 
-    // private void OnCollisionEnter2D(Collision2D colision){
-    //     hasHit = true;
-    //     rb.velocity = Vector2.zero;
-    //     rb.isKinematic = true;
-    // }
+    private void OnTriggerEnter2D(Collider2D other){
+        if (other.gameObject.tag != "Arrow" && other.gameObject.tag != "Player"){
+            hasHit = true;
+            rb.velocity = Vector2.zero;
+            rb.isKinematic = true;
+        }
+
+        if (other.gameObject.tag == "Enemy"){
+            EnemyScript enemy = other.gameObject.GetComponent<EnemyScript>(); 
+            enemy.takeDamage(damage);
+        }
+    }
 
 
 }
