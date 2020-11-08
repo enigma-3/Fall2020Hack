@@ -98,7 +98,9 @@ public class EnemyScript : MonoBehaviour
             animator.ResetTrigger("Attack"); 
             animator.SetTrigger("Attack"); 
             GameObject fireball = Instantiate(proj, spawner.position, spawner.rotation);
-            fireball.GetComponent<Rigidbody2D>().velocity = transform.right * 15f;  
+            
+            fireball.GetComponent<Rigidbody2D>().velocity = transform.right * 15f *
+                                                        (transform.localScale.x/Mathf.Abs(transform.localScale.x));  
         }
 
     }
