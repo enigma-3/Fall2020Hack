@@ -23,7 +23,18 @@ public class EnemyScript : MonoBehaviour
     public Vector3 refVel; 
     
 
+    public GameObject proj; 
+
+
+    private float startA; 
+    public float attackDelay; 
+    public Transform spawner; 
+
     private State state;
+
+    public float maxHealth; 
+    private float curHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,14 +43,20 @@ public class EnemyScript : MonoBehaviour
         player = character.transform; 
         //Remove Temp Child
         foreach (Transform child in this.transform){
-            GameObject.Destroy(child.gameObject);
+            if (child.tag == "Prefab")
+                GameObject.Destroy(child.gameObject);
         }
+
+        curHealth = maxHealth; 
+
 
         //Spawn Enemy
         int enemyIndex = Random.Range(0,4);
         child = Instantiate(enemyList[enemyIndex],transform.position, transform.rotation,transform);
         animator = child.GetComponent<Animator>(); 
         //Get Component
+
+
         rb = GetComponent<Rigidbody2D>();
         state = State.Patrol;                 
     }
@@ -61,6 +78,34 @@ public class EnemyScript : MonoBehaviour
         scale.x *= -1; 
         transform.localScale = scale;
     }
+
+
+
+    public void takeDamage(float damage){
+        curHealth -= damage; 
+        Debug.Log(curHealth);
+        if (curHealth < 0){
+            curHealth = 0; 
+            //Player Dies
+            Destroy(this.gameObject); 
+        }   
+    }
+
+
+    void attackPlayer(){
+        if (Time.time - startA > attackDelay){
+            startA = Time.time; 
+            animator.ResetTrigger("Attack"); 
+            animator.SetTrigger("Attack"); 
+            GameObject fireball = Instantiate(proj, spawner.position, spawner.rotation);
+            
+            fireball.GetComponent<Rigidbody2D>().velocity = transform.right * 15f *
+                                                        (transform.localScale.x/Mathf.Abs(transform.localScale.x));  
+        }
+
+    }
+
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -87,6 +132,7 @@ public class EnemyScript : MonoBehaviour
             else{
                 rb.velocity = new Vector2(0,0); 
                 animator.SetFloat("speed", 0); 
+                attackPlayer(); 
             }
         }
         if (state == State.Patrol){
@@ -96,4 +142,3 @@ public class EnemyScript : MonoBehaviour
        
     }
 }
- 
