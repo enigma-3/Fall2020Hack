@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMoveScript : MonoBehaviour
 {
+
+
     Animator animator;
     public float moveSpeed = 5f;
     public bool isGrounded = false;

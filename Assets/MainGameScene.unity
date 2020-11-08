@@ -1238,6 +1238,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1253,6 +1254,20 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203a1c9c6739f224a9d5ae07cce064b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 733798331}
+  speed: 5
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1303,7 +1318,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1553,11 +1568,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2265427989457461594, guid: 940879fe3ffc20443a18cad98acaf3f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.1
+      value: -11.91
       objectReference: {fileID: 0}
     - target: {fileID: 2265427989457461594, guid: 940879fe3ffc20443a18cad98acaf3f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.3
+      value: -2.76
       objectReference: {fileID: 0}
     - target: {fileID: 2265427989457461594, guid: 940879fe3ffc20443a18cad98acaf3f4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1727,6 +1742,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7adce172837ac1d4188ce9f8167afaba, type: 3}
+--- !u!4 &733798331 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2265427989457461594, guid: 940879fe3ffc20443a18cad98acaf3f4, type: 3}
+  m_PrefabInstance: {fileID: 642780386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &754646110
 GameObject:
   m_ObjectHideFlags: 0
