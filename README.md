@@ -8,3 +8,10 @@ HACKATHON TEAM CANUCKS
 
 ## Project 
 Empty so far
+
+## Controls
+A         -> go left
+D         -> go right
+spacebar  -> jump
+mouse     -> aim
+L-click   -> shoot arrow
