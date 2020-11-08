@@ -22,4 +22,21 @@ public class Fireball : MonoBehaviour
             Destroy(this.gameObject); 
         }
     }
+
+
+    void doDamage(GameObject other){
+        PlayerHealth health =  other.GetComponent<PlayerHealth>();
+
+        float damage = Random.Range(15,20);
+        health.takeDamage(damage);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Player"){
+            doDamage(other.gameObject);
+            Destroy(this.gameObject); 
+        }
+    }
+
+
 }

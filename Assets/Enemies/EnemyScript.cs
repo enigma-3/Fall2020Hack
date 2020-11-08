@@ -31,6 +31,10 @@ public class EnemyScript : MonoBehaviour
     public Transform spawner; 
 
     private State state;
+
+    public float maxHealth; 
+    private float curHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,11 +47,16 @@ public class EnemyScript : MonoBehaviour
                 GameObject.Destroy(child.gameObject);
         }
 
+        curHealth = maxHealth; 
+
+
         //Spawn Enemy
         int enemyIndex = Random.Range(0,4);
         child = Instantiate(enemyList[enemyIndex],transform.position, transform.rotation,transform);
         animator = child.GetComponent<Animator>(); 
         //Get Component
+
+
         rb = GetComponent<Rigidbody2D>();
         state = State.Patrol;                 
     }
@@ -70,6 +79,17 @@ public class EnemyScript : MonoBehaviour
         transform.localScale = scale;
     }
 
+
+
+    public void takeDamage(float damage){
+        curHealth -= damage; 
+        Debug.Log(curHealth);
+        if (curHealth < 0){
+            curHealth = 0; 
+            //Player Dies
+            Destroy(this.gameObject); 
+        }   
+    }
 
 
     void attackPlayer(){
