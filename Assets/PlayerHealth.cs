@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -8,20 +9,24 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth; 
 
 
+    public Slider slider;  
+
     // Start is called before the first frame update
     void Start()
     {
         curHealth = maxHealth; 
+        slider.value = curHealth/maxHealth; 
     }
 
     public void takeDamage(float damage){
         curHealth -= damage; 
-        Debug.Log(curHealth);
+        slider.value = curHealth/maxHealth;
         if (curHealth < 0){
             curHealth = 0; 
             //Player Dies
             Debug.Log("Dies"); 
         }       
+
     }
 
 }
