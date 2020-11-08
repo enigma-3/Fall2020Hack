@@ -66,6 +66,9 @@ public class PlayerMoveScript : MonoBehaviour
         if (other.gameObject.tag == "Finish"){
             SceneManager.LoadScene("MainMenu",LoadSceneMode.Single);
         }
+        if (other.gameObject.tag == "Respawn"){
+            SceneManager.LoadScene("MainGameScene",LoadSceneMode.Single);
+        }
     }
 
 }

@@ -392,8 +392,8 @@ MonoBehaviour:
   - {fileID: 1000011821036864, guid: 5b210609803658e488f512fc13a6163e, type: 3}
   movementSmooth: 0.05
   viewRadius: 10
-  attackRad: 5
-  enemyVelocity: 5
+  attackRad: 8
+  enemyVelocity: 7
   refVel: {x: 0, y: 0, z: 0}
   proj: {fileID: 1967033473826967436, guid: 96ef2c58e7f4517499885af4370fdbea, type: 3}
   slider: {fileID: 4390060745894985329}
@@ -502,7 +502,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 300094115866128149}
   m_HandleRect: {fileID: 0}
