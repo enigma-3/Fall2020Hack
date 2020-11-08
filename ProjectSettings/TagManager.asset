@@ -44,3 +44,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BowAndArrow
+    uniqueID: 2523776687
+    locked: 0
