@@ -23,6 +23,13 @@ public class EnemyScript : MonoBehaviour
     public Vector3 refVel; 
     
 
+    public GameObject proj; 
+
+
+    private float startA; 
+    public float attackDelay; 
+    public Transform spawner; 
+
     private State state;
     // Start is called before the first frame update
     void Start()
@@ -32,7 +39,8 @@ public class EnemyScript : MonoBehaviour
         player = character.transform; 
         //Remove Temp Child
         foreach (Transform child in this.transform){
-            GameObject.Destroy(child.gameObject);
+            if (child.tag == "Prefab")
+                GameObject.Destroy(child.gameObject);
         }
 
         //Spawn Enemy
@@ -62,6 +70,21 @@ public class EnemyScript : MonoBehaviour
         transform.localScale = scale;
     }
 
+
+
+    void attackPlayer(){
+        if (Time.time - startA > attackDelay){
+            startA = Time.time; 
+            animator.ResetTrigger("Attack"); 
+            animator.SetTrigger("Attack"); 
+            GameObject fireball = Instantiate(proj, spawner.position, spawner.rotation);
+            fireball.GetComponent<Rigidbody2D>().velocity = transform.right * 15f;  
+        }
+
+    }
+
+
+
     // Update is called once per frame
     void FixedUpdate()
     {            
@@ -87,6 +110,7 @@ public class EnemyScript : MonoBehaviour
             else{
                 rb.velocity = new Vector2(0,0); 
                 animator.SetFloat("speed", 0); 
+                attackPlayer(); 
             }
         }
         if (state == State.Patrol){
@@ -96,4 +120,3 @@ public class EnemyScript : MonoBehaviour
        
     }
 }
- 
