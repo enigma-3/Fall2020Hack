@@ -11,6 +11,9 @@ public class PlayerHealth : MonoBehaviour
 
     public Slider slider;  
 
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +22,16 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void takeDamage(float damage){
+
+        Animator animator = GetComponent<Animator>();
+        animator.SetTrigger("damage"); 
+
         curHealth -= damage; 
         slider.value = curHealth/maxHealth;
         if (curHealth < 0){
             curHealth = 0; 
             //Player Dies
-            Debug.Log("Dies"); 
+            
         }       
-
     }
-
 }
